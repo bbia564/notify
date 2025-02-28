@@ -7,10 +7,14 @@ import 'package:remind_clock/pages/remind_add/remind_add_binding.dart';
 import 'package:remind_clock/pages/remind_add/remind_add_view.dart';
 import 'package:remind_clock/pages/remind_first/remind_first_binding.dart';
 import 'package:remind_clock/pages/remind_first/remind_first_view.dart';
+import 'package:remind_clock/pages/remind_me/remind_me_binding.dart';
+import 'package:remind_clock/pages/remind_me/remind_me_view.dart';
 import 'package:remind_clock/pages/remind_second/remind_second_binding.dart';
 import 'package:remind_clock/pages/remind_second/remind_second_view.dart';
 import 'package:remind_clock/pages/remind_tab/remind_tab_binding.dart';
 import 'package:remind_clock/pages/remind_tab/remind_tab_view.dart';
+
+import 'db_remind/db_meber.dart';
 
 Color primaryColor = const Color(0xff32b29e);
 Color bgColor = const Color(0xfff4f4f4);
@@ -29,7 +33,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       getPages: Minds,
-      initialRoute: '/remindTab',
+      initialRoute: '/',
       theme: ThemeData(
         useMaterial3: true,
         primaryColor: primaryColor,
@@ -81,9 +85,11 @@ class MyApp extends StatelessWidget {
   }
 }
 List<GetPage<dynamic>> Minds = [
+  GetPage(name: '/', page: () => const RemindMeView(), binding: RemindMeBinding()),
   GetPage(name: '/remindTab', page: () => RemindTabPage(), binding: RemindTabBinding()),
   GetPage(name: '/remindFirst', page: () => RemindFirstPage(), binding: RemindFirstBinding()),
   GetPage(name: '/remindSecond', page: () => RemindSecondPage(), binding: RemindSecondBinding()),
   GetPage(name: '/remindAdd', page: () => RemindAddPage(), binding: RemindAddBinding()),
+  GetPage(name: '/remindDown', page: () => const DbMeber()),
   GetPage(name: '/reload',page: () => NoNetworkPage(), binding: NoNetworkBinding())
 ];

@@ -11,8 +11,8 @@ class RemindMeView extends GetView<PageLogic> {
     return Scaffold(
       body: Center(
         child: Obx(
-          () => controller.bogisich.value
-              ? const CircularProgressIndicator(color: Colors.green)
+          () => controller.johnston.value
+              ? const CircularProgressIndicator(color: Colors.teal)
               : buildError(),
         ),
       ),
@@ -26,7 +26,7 @@ class RemindMeView extends GetView<PageLogic> {
         children: [
           IconButton(
             onPressed: () {
-              controller.erkom();
+              controller.smpblj();
             },
             icon: const Icon(
               Icons.restart_alt,
